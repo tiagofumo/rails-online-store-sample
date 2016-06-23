@@ -1,0 +1,20 @@
+<div class='header'>
+  <%= link_to image_tag('logo.png', size: '298x50'), root_url %>
+  <div class='header-right'>
+    <div class='shopping-cart'>
+      <%= image_tag 'shoppingcart.png', class: 'shopping-cart__image', size:'35x35'%>
+      <span class='shopping-cart__count'><%= 0 %></span>
+    </div>
+
+    <div class='header-right__menu'>
+      <% if (user_signed_in?) then %>
+        <%= render 'layouts/account_options' %>
+      <% else %>
+        <div class='header-right__menu__login'>
+          <%= link_to 'LOG IN', new_user_session_path %>
+          <%= link_to 'REGISTER', new_user_registration_path %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

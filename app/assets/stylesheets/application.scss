@@ -1,0 +1,54 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+.header {
+  display: flex;
+  padding-bottom: 3px;
+  border-style: solid;
+  border-color: #399ED4;
+  border-width: 0px 0px 2px;
+}
+
+.header-right {
+  margin-left: auto;
+  margin-top: 10px;
+  display: flex;
+  .shopping-cart {
+    .shopping-cart__image {
+      margin-right: 5px;
+    }
+    .shopping-cart__count {
+      margin-right: 15px;
+      font-size: 20px;
+    }
+  }
+
+  .header-right__menu {
+    display: flex;
+    .header-right__menu__login {
+      display: flex;
+      font-size:20px;
+      align-items: center;
+      :first-child {
+        margin-right: 20px;
+      }
+    }
+    .header-profile-image {
+      border-radius: 50%;
+      border-style: solid;
+      border-width: 1px;
+      margin-right: 10px;
+    }
+    .account-header-menu {
+    }
+  }
+}
+
+.login-options-section {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.login-options-section a {
+  font-size: 25px;
+}
