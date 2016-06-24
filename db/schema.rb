@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623052834) do
+ActiveRecord::Schema.define(version: 20160624013631) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "categories", ["category_id"], name: "index_categories_on_category_id"
+
+  create_table "product_pictures", force: :cascade do |t|
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.integer  "product_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "product_pictures", ["product_id"], name: "index_product_pictures_on_product_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
