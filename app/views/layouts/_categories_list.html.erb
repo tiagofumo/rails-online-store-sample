@@ -1,0 +1,11 @@
+<% categories.each do |category, subcategories| %>
+  <li class='category_line'>
+    <%= link_to category.name.capitalize, category, { 'class' => 'category_link' } %>
+    <% if !subcategories.empty? %>
+      <%= link_to '+', 'javascript:void(0)', { 'class' => 'category_arrow' } %>
+      <ul class='category_list'>
+        <%= render partial: 'layouts/categories_list', locals: { categories: subcategories } %>
+      </ul>
+    <% end %>
+  </li>
+<% end %>

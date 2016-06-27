@@ -1,13 +1,31 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
+$primary-color: #399ED4;
+$category-border-color: #eee;
+$category-color: gray;
+$sidebar-top-font-color: #333;
+$separator-color: #cbcbcb;
+
+a {
+  &:hover, &:link, &:visited, &:active{
+    text-decoration: none;
+  }
+}
+
+/* header */
 .header {
   display: flex;
   padding-bottom: 3px;
   border-style: solid;
-  border-color: #399ED4;
+  border-color: $primary-color;
   border-width: 0px 0px 2px;
   margin-top: 20px;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
 }
 
 .header-right {
@@ -52,4 +70,61 @@
 
 .login-options-section a {
   font-size: 25px;
+}
+
+/* categories list */
+
+.sidebar-list, .sidebar-item, .category_line {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+.sidebar {
+  width: 200px;
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  border-right: 1px solid $separator-color;
+}
+
+.category_line {
+  position: relative;
+}
+
+.category_list {
+  padding: 0px;
+  margin-left: 10px;
+  list-style: none;
+  display: none;
+}
+
+.category_arrow {
+  float: right;
+  padding: 2px 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.category_link {
+  border-bottom: 1px solid $category-border-color;
+  border-right: 1px solid $category-border-color;
+  padding: 2px 4px 2px;
+}
+
+.category_link, .category_arrow {
+  display: block;
+  color: $category-color;
+  &:hover {
+    background-color: $primary-color;
+    color: white;
+  }
+}
+
+.sidebar_top_item {
+  color: $sidebar-top-font-color;
+}
+
+.separator {
+  border-bottom: 1px solid $separator-color;
 }
