@@ -8,9 +8,8 @@
     <a class="dropdown-toggle" data-toggle="dropdown">MY ACCOUNT
     <span class="caret"></span></a>
     <ul class="dropdown-menu">
-      <li><a href="#">HTML</a></li>
-      <li><a href="#">CSS</a></li>
-      <li><a href="#">JavaScript</a></li>
+      <li><%= link_to 'Manage Account', account_path %></li>
+      <li><%= link_to 'My Profile', profile_path %></li>
       <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
     </ul>
   </div>

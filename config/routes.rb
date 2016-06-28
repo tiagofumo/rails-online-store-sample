@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'new_products' => 'products#index'
   get 'top_sellers' => 'products#top_sellers'
   get 'for_sale' => 'products#for_sale'
+  get 'profile' => 'users#profile'
+  get 'account' => 'users#account'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
