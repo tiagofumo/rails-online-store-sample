@@ -1,8 +1,8 @@
-<%= image_tag @user.avatar.url, class: 'header-profile-image', size: '40x40' %>
+<%= image_tag @current_user.avatar.url, class: 'header-profile-image', size: '40x40' %>
 
 <div class='account-header-menu'>
   <div class='account-header-menu__hello'>
-    <span><%= ('Hello, ' + @user.first_name).upcase %></span>
+    <span><%= ('Hello, ' + @current_user.first_name).upcase %></span>
   </div>
   <div class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown">MY ACCOUNT

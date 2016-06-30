@@ -287,6 +287,10 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    papercrop (0.3.0)
+      jquery-rails
+      paperclip (>= 3.4)
+      rails (>= 3.1)
     pg (0.18.4)
     pkg-config (1.1.7)
     pry (0.10.3)
@@ -414,6 +418,7 @@ DEPENDENCIES
   minitest-reporters (= 1.0.5)
   omniauth-facebook (= 3.0.0)
   paperclip (= 4.3.6)
+  papercrop (= 0.3.0)
   pg (= 0.18.4)
   puma (= 3.1.0)
   rails (= 4.2.6)

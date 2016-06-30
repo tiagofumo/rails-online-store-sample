@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def load_user
     if user_signed_in? then
-      @user = current_user
+      @current_user = current_user
     end
   end
 end

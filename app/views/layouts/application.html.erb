@@ -9,14 +9,33 @@
 </head>
 <body>
   <div class='container'>
-    <%# <p class="notice"><%= notice %1></p> %>
-    <%# <p class="alert"><%= alert %1></p> %>
+
+    <% if notice %>
+      <div class="alert alert-warning fade in">
+        <a href="javascript:void(0)" class="close" data-dismiss="alert"
+          aria-label="close" title="close">×</a>
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-danger fade in">
+        <a href="javascript:void(0)" class="close" data-dismiss="alert"
+          aria-label="close" title="close">×</a>
+        <%= alert %>
+      </div>
+    <% end %>
 
     <%= render 'layouts/header' %>
 
-    <%= render 'layouts/sidebar' %>
+    <div class='row'>
+      <div class='col-sm-2'>
+        <%= render 'layouts/sidebar' %>
+      </div>
+      <div class='col-sm-8'>
+        <%= yield %>
+      </div>
+    </div>
 
-    <%= yield %>
   </div>
 </body>
 </html>

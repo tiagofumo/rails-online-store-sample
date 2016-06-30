@@ -4,6 +4,7 @@ ruby             '2.3.1'
 gem 'rails',     '4.2.6'
 
 gem 'paperclip',         '4.3.6'
+gem 'papercrop',         '0.3.0'
 gem 'devise',            '4.1.1'
 gem 'omniauth-facebook', '3.0.0'
 

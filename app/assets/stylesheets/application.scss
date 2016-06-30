@@ -1,6 +1,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import 'jquery.jcrop';
 
 $primary-color: #399ED4;
 $category-border-color: #eee;
@@ -81,7 +82,6 @@ a {
 }
 
 .sidebar {
-  width: 200px;
   margin-top: 20px;
   font-family: 'Montserrat', sans-serif;
   border-right: 1px solid $separator-color;

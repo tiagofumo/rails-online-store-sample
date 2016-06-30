@@ -14,9 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-$(document).ready(function() {
-  $('.category_arrow').click(function() {
-    $(this).siblings('.category_list').toggle();
-  });
-});
+//= require jquery.jcrop
+//= require papercrop
