@@ -1,0 +1,6 @@
+<div class='product-listing-item'>
+  <%= image_tag listing_item.default_image, size: '200x200' %>
+  <span><%= listing_item.name %></span>
+  <span><%= listing_item.price %></span>
+  <%= render 'products/add_to_cart' %>
+</div>
