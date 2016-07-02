@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624013631) do
+ActiveRecord::Schema.define(version: 20160702125406) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "sparkfun_id"
   end
 
   add_index "categories", ["category_id"], name: "index_categories_on_category_id"
@@ -30,6 +31,8 @@ ActiveRecord::Schema.define(version: 20160624013631) do
     t.integer  "product_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.boolean  "default"
+    t.string   "sparkfun_link"
   end
 
   add_index "product_pictures", ["product_id"], name: "index_product_pictures_on_product_id"
@@ -39,9 +42,22 @@ ActiveRecord::Schema.define(version: 20160624013631) do
     t.decimal  "price"
     t.text     "description"
     t.integer  "stock"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "category_id",       null: false
+    t.string   "sku"
+    t.boolean  "open_source"
+    t.string   "country"
+    t.integer  "pack_length"
+    t.integer  "pack_width"
+    t.integer  "pack_height"
+    t.decimal  "weight"
+    t.boolean  "backorder_allowed"
+    t.integer  "sparkfun_id"
+    t.boolean  "rohs"
   end
+
+  add_index "products", ["category_id"], name: "index_products_on_category_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

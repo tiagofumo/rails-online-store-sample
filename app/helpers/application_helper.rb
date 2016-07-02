@@ -16,4 +16,12 @@ module ApplicationHelper
       end
     end
   end
+
+  def select_options(collection, selected = nil)
+    options_from_collection_for_select(collection, 'id', 'name', selected)
+  end
+
+  def choose_one
+    { prompt: '-- Choose One --' }
+  end
 end
