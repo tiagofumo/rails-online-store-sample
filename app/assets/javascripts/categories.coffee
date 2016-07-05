@@ -2,6 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
+$(document).ready ->
   $('.category_arrow').click ->
     $(this).siblings('.category_list').toggle()

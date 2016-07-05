@@ -1,6 +1,6 @@
 <div class='product-listing-item'>
-  <%= image_tag listing_item.default_picture(:medium) %>
-  <span><%= listing_item.name %></span>
+  <%= link_to image_tag(listing_item.default_picture(:medium)), listing_item %>
+  <span><%= link_to listing_item.name, listing_item %></span>
   <span><%= listing_item.price %></span>
   <%= render 'products/add_to_cart' %>
 </div>

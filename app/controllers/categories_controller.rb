@@ -10,7 +10,10 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @products = Product.where(category_id: @category.id)
+    @products = Product.includes(:product_pictures).
+                        where(category_id: @category.id,
+                        product_pictures: { default: true }).
+                        order(name: :ASC)
   end
 
   # GET /categories/new
