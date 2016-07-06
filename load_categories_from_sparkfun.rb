@@ -5,7 +5,7 @@ require 'pp'
 # Destroy all categories first
 # Category.where.not(sparkfun_id: nil).destroy_all
 
-@@categories = JSON.parse open('https://www.sparkfun.com/categories.json').read
+@@categories = JSON.parse open('./categories.json').read
 
 def walk_tree(array, parent_id)
   array.each do |node|

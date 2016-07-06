@@ -5,8 +5,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.includes(:product_pictures).
-                        where(product_pictures: { default: true }).
+    @products = Product.includes(:primary_picture).
                         order(created_at: :desc)
   end
 

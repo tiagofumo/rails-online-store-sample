@@ -1,5 +1,5 @@
 <div class='product-listing-item'>
-  <%= link_to image_tag(listing_item.default_picture(:medium)), listing_item %>
+  <%= link_to image_tag(listing_item.primary_picture.url(:medium)), listing_item %>
   <span><%= link_to listing_item.name, listing_item %></span>
   <span><%= listing_item.price %></span>
   <%= render 'products/add_to_cart' %>
