@@ -6,7 +6,8 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.includes(:primary_picture).
-                        order(created_at: :desc)
+                        order(created_at: :desc).
+                        paginate(page: params[:page], per_page: 45)
   end
 
   # GET /products/1

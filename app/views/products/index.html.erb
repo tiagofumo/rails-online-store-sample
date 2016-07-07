@@ -1,1 +1,3 @@
-<%= render partial: 'listing_item', collection: @products %>
+<%= will_paginate @products %>
+<%= render partial: 'products/listing_item', collection: @products %>
+<%= will_paginate @products %>

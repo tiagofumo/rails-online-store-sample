@@ -10,10 +10,11 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @products = Product.includes(:product_pictures).
-                        where(category_id: @category.id,
-                        product_pictures: { default: true }).
-                        order(name: :ASC)
+    @products = Product.includes(:primary_picture).
+                        where(category_id: @category.id).
+                        order(name: :ASC).
+                        paginate(page: params[:page], per_page: 45)
+    render 'products/index'
   end
 
   # GET /categories/new
