@@ -181,3 +181,13 @@ form>div.actions{
 .header-text {
   color: $primary-color;
 }
+
+div>.per_page {
+  .per_page_field {
+    max-width: 100px;
+    display: inline;
+  }
+  margin: 20px 0px;
+  padding: 20px 0px;
+}
+

@@ -1,3 +1,17 @@
-<%= will_paginate @products %>
+<div class='row'>
+  <div class='per_page col-sm-6'>
+    <form class='form' method='get'>
+      <span>Showing</span>
+      <input type='text' name='per_page' class='per_page_field' />
+      <span>per page</span>
+      <input type='submit' value='update' />
+    </form>
+  </div>
+  <div class='col-sm-6'>
+    <%= will_paginate @products, inner_window: 1, outer_window: 2 %>
+  </div>
+</div>
 <%= render partial: 'products/listing_item', collection: @products %>
-<%= will_paginate @products %>
+<div class='row'>
+  <center><%= will_paginate @products, inner_window: 1, outer_window: 2 %></center>
+</div>
