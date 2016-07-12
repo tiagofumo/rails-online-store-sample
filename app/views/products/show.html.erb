@@ -1,24 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Stock:</strong>
-  <%= @product.stock %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class='col-sm-3'>
+  <%= image_tag @product.primary_picture.url(:medium) %>
+  <%- @product.product_pictures.each do |p| %>
+    <%= image_tag p.url(:thumb) %>
+  <% end -%>
+  <%- if @product.sparkfun_id %>
+    <span>This product belongs to
+      <%= link_to 'https://www.sparkfun.com', 'Sparkfun '%></span>
+  <% end -%>
+</div>
+<div class='col-sm-6'>
+  <h2 class='product-name'><%= @product.name.capitalize %></h2>
+  <span class='product-sku'><%= @product.sku %></span><br>
+  <b>Description: </b><span class='description'><%= @product.description.html_safe %></span>
+</div>
+<div class='product-right-panel col-sm-3'>
+  <h2 class='product-price'><%= @product.price %></h2>
+  <%= render 'products/add_to_cart' %>
+</div>
