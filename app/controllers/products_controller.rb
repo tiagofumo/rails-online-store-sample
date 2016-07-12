@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.includes(:primary_picture).
                         order(created_at: :desc).
-                        paginate(page: params[:page], per_page: 45)
+                        paginate(page: params[:page], per_page: 40)
   end
 
   # GET /products/1

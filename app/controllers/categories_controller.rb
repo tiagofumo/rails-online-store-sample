@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
     @products = Product.includes(:primary_picture).
                         where(category_id: @category.id).
                         order(name: :ASC).
-                        paginate(page: params[:page], per_page: 45)
+                        paginate(page: params[:page], per_page: 40)
     render 'products/index'
   end
 
