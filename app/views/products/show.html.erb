@@ -1,19 +1,27 @@
-<div class='col-sm-3'>
-  <%= image_tag @product.primary_picture.url(:medium) %>
+<div class='product-images-panel'>
+  <%= image_tag @product.primary_picture.url(:medium), class: 'main-product-image' %>
   <%- @product.product_pictures.each do |p| %>
-    <%= image_tag p.url(:thumb) %>
+    <%= image_tag p.url(:thumb), class: 'product-thumbnail-image' %>
   <% end -%>
   <%- if @product.sparkfun_id %>
+    <br>
     <span>This product belongs to
-      <%= link_to 'https://www.sparkfun.com', 'Sparkfun '%></span>
+      <%= link_to 'Sparkfun', 'https://www.sparkfun.com' %></span>
   <% end -%>
 </div>
-<div class='col-sm-6'>
+<div class='product-description-panel'>
   <h2 class='product-name'><%= @product.name.capitalize %></h2>
   <span class='product-sku'><%= @product.sku %></span><br>
   <b>Description: </b><span class='description'><%= @product.description.html_safe %></span>
 </div>
-<div class='product-right-panel col-sm-3'>
-  <h2 class='product-price'><%= @product.price %></h2>
+<div class='product-price-panel'>
+  <h2 class='product-price'><%= number_to_currency @product.price %></h2>
   <%= render 'products/add_to_cart' %>
+  <table class='product-right-table'>
+    <tr>
+      <td><input type='text' id='product_qty' value='1' /></td>
+      <td>quantity</td>
+    </tr>
+    <tr><td><%= @product.stock %></td><td>in stock</td></tr>
+  </table>
 </div>
