@@ -16,3 +16,4 @@
 //= require_tree .
 //= require jquery.jcrop
 //= require papercrop
+//= require social-share-button
