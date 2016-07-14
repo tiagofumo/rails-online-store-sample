@@ -209,6 +209,16 @@ div>.per_page {
   padding-bottom: 20px;
 }
 
+.product-sku {
+  font-family: Montserrat;
+  color: #777;
+}
+
+.product-description > :first-child::before {
+  content: "Description: ";
+  font-weight: bold;
+}
+
 .product-right-table {
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;

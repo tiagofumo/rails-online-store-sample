@@ -10,9 +10,9 @@
   <% end -%>
 </div>
 <div class='product-description-panel'>
-  <h2 class='product-name'><%= @product.name.capitalize %></h2>
+  <h3 class='product-name'><%= @product.name.capitalize %></h3>
   <span class='product-sku'><%= @product.sku %></span><br>
-  <b>Description: </b><span class='description'><%= @product.description.html_safe %></span>
+  <div class='product-description'><%= @product.description.html_safe %></div>
 </div>
 <div class='product-price-panel'>
   <h2 class='product-price'><%= number_to_currency @product.price %></h2>
