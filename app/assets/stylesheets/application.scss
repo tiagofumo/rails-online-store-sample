@@ -200,6 +200,9 @@ div>.per_page {
   padding: 20px 0px;
 }
 
+.navbar {
+  border-bottom: 1px solid $separator-color;
+}
 
 .product-images-panel {
   @extend .col-sm-3;
@@ -289,3 +292,34 @@ div>.per_page {
 		margin-right: 5px;
 	}
 }
+
+nav.navbar {
+	min-height: 40px;
+	font-family: 'Montserrat';
+}
+
+.navbar-nav>li>a {
+	line-height: 8px;
+}
+
+.search {
+  color: #aaa;
+}
+
+.search input {
+	@extend .form-control;
+  width: 150px;
+  text-indent: 20px;
+  transition: all 0.2s;
+	margin-top: 1px;
+	&:focus {
+		width: 200px;
+	}
+}
+
+.search>span.glyphicon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
