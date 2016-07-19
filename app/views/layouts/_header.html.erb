@@ -2,8 +2,11 @@
   <%= link_to image_tag('logo.png', size: '298x50'), root_url %>
   <div class='header-right'>
     <div class='shopping-cart'>
-      <%= image_tag 'shoppingcart.png', class: 'shopping-cart__image', size:'35x35'%>
-      <span class='shopping-cart__count'><%= 0 %></span>
+      <a href='/cart'>
+        <%= image_tag 'shoppingcart.png', class: 'shopping-cart__image',
+                                          size:'35x35'%>
+        <span class='shopping-cart__count'><%= @cart_size %></span>
+      </a>
     </div>
 
     <div class='header-right__menu'>
