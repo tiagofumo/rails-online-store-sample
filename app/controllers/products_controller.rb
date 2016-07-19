@@ -5,9 +5,11 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    params[:per_page] = 28 if !params.key? :per_page
     @products = Product.includes(:primary_picture).
                         order(created_at: :desc).
-                        paginate(page: params[:page], per_page: 40)
+                        paginate(page: params[:page],
+                                 per_page: params[:per_page])
   end
 
   # GET /products/1
