@@ -1,0 +1,29 @@
+<div class='cart_item'>
+  <%= link_to image_tag(cart_item.product.primary_picture.url(:small)),
+                        cart_item.product,
+                        class: 'cart_item__picture' %>
+  <div class='cart_item__info'>
+    <div class='cart_item__product'>
+      <span class='cart_item__product_name'>
+        <%= link_to cart_item.product.name, cart_item.product %>
+      </span>
+      <span class='text-muted cart_item__product_sku'>
+        <%= cart_item.product.sku %>
+      </span>
+      <span class='text-muted small cart_item__product_stock'>
+        <%= cart_item.product.stock %> in stock
+      </span>
+    </div>
+    <span class='cart_item__price'>
+      <%= number_to_currency cart_item.product.price %>
+    </span>
+  </div>
+  <div class='cart_item__options'>
+    <input type='number' class='product_qty' value='<%= cart_item.quantity %>'/>
+    <button type='button'
+            data-id="<%= cart_item.id %>"
+            class='button btn-sm delete_cart_item'>
+      DELETE
+    </button>
+  </div>
+</div>

@@ -16,7 +16,7 @@
 </div>
 <div class='product-price-panel'>
   <h2 class='product-price'><%= number_to_currency @product.price %></h2>
-  <%= render 'products/add_to_cart' %>
+  <%= render 'products/add_to_cart', product_id: @product.id %>
   <table class='product-right-table'>
     <tr>
       <td><input type='text' id='product_qty' value='1' /></td>

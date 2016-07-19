@@ -1,0 +1,14 @@
+<% if @cart_items.empty? %>
+  <h3>Your cart is empty. Buy something!</h3>
+<% elsif %>
+  <h2>Your Shopping Cart</h2>
+  <%= render partial: 'cart_item', collection: @cart_items %>
+  <div class='cart_footer'>
+    <span class='cart_footer__subtotal'>
+      Subtotal: <%= number_to_currency cart_total @cart_items %>
+    </span>
+    <form action='/orders/checkout' >
+      <input type='submit' value='Checkout' >
+    </form>
+  </div>
+<% end %>

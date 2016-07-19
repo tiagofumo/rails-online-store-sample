@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get    'cart'     => 'cart#index'
+  post   'cart'     => 'cart#add_item'
+  delete 'cart/:id' => 'cart#destroy_item'
+
   devise_for :users, skip: :registrations
 
   resources :users
