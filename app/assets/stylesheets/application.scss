@@ -1,7 +1,6 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import 'jquery.jcrop';
 @import "social-share-button";
 
 $primary-color: #399ED4;
@@ -161,6 +160,7 @@ form>div.actions{
   align-items: center;
   padding: 5px;
   transition: all 0.05s ease-in;
+  height: 350px;
   &:hover {
     -webkit-box-shadow: 0px 2px 6px 3px rgba(199,199,199,1);
     -moz-box-shadow: 0px 2px 6px 3px rgba(199,199,199,1);
