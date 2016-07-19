@@ -1,11 +1,13 @@
 <nav class="navbar">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Github</a></li>
+      <li><%= link_to 'Github',
+                      'https://github.com/tiagofumo/rails-online-store-sample',
+                      target: '_blank' %></li>
       <li><a href="#">Products</a></li>
       <li><a href="#">Blog</a></li>
       <li><a href="#">Wish List</a></li>
-      <li><a href="#">About</a></li>
+      <li><%= link_to 'About', about_path %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li>

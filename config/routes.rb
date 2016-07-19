@@ -16,9 +16,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
   get 'top_sellers' => 'products#top_sellers'
-  get 'for_sale' => 'products#for_sale'
-  get 'profile' => 'users#profile'
-  get 'account' => 'users#account'
+  get 'for_sale'    => 'products#for_sale'
+  get 'profile'     => 'users#profile'
+  get 'account'     => 'users#account'
+  get 'about'       => 'static_pages#about'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
