@@ -1,5 +1,6 @@
 <div class='product-listing-item'>
-  <%= link_to image_tag(listing_item.primary_picture.url(:medium)), listing_item %>
+  <%= link_to image_tag(listing_item.primary_picture.url(:medium),
+                        size:'188x188'), listing_item %>
   <span><%= link_to listing_item.name, listing_item %></span>
   <span><%= listing_item.price %></span>
   <%= render 'products/add_to_cart', product_id: listing_item.id %>
