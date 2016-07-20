@@ -3,6 +3,8 @@ class CartController < ApplicationController
     if user_signed_in?
       @cart_items = CartItem.where(user_id: @current_user.id).
                              includes(product: :primary_picture)
+    else
+      @cart_items = []
     end
   end
 
