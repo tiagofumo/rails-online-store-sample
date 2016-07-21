@@ -1,6 +1,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css);
 @import "social-share-button";
 
 $primary-color: #399ED4;
@@ -355,3 +356,21 @@ nav.navbar {
   left: 10px;
 }
 
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    &>input[type=file] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-width: 100%;
+      min-height: 100%;
+      text-align: right;
+      filter: alpha(opacity=0);
+      opacity: 0;
+      outline: none;
+      background: white;
+      cursor: inherit;
+      display: block;
+    }
+}
