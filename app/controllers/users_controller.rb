@@ -62,27 +62,36 @@ class UsersController < ApplicationController
   end
 
   def profile
+    login_needed
   end
 
   def update_profile
-    if user_signed_in?
-      user_params = params.require(:user).permit(:alias, :avatar,
-                                                 :country, :profile)
-      @current_user.update_without_password(user_params)
-      redirect_to :profile
-    end
+    login_needed
+    user_params = params.require(:user).permit(:alias, :avatar,
+                                               :country, :profile)
+    @current_user.update_without_password(user_params)
+    redirect_to :profile
   end
 
   def account
+    login_needed
   end
 
   def update_account
-    if user_signed_in?
-      user_params = params.require(:user).permit(:name, :company,
-                                                 :phone, :fax)
-      @current_user.update_without_password(user_params)
-      redirect_to :account
-    end
+    login_needed
+    user_params = params.require(:user).permit(:name, :company,
+                                               :phone, :fax)
+    @current_user.update_without_password(user_params)
+    redirect_to :account
+  end
+
+  def edit_password
+    login_needed
+
+  end
+
+  def update_password
+    login_needed
   end
 
   private
@@ -94,5 +103,11 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :avatar, :password, :email)
+    end
+
+    def login_needed
+      if !user_signed_in?
+        redirect_to new_user_session_path, alert: 'Please log in.'
+      end
     end
 end
