@@ -1,0 +1,35 @@
+<h3 class='header-text'>Account</h3>
+<div class='default-panel row'>
+  <%= form_for(@current_user, url: account_path) do |f| %>
+    <div class='user-account__left'>
+      <h1>Settings</h1>
+      <p>This information is <b>private</b>.</p>
+      <p>Your email address is
+        <b><%= @current_user.confirmed? ? 'verified' : 'not verified' %></b>.
+      </p>
+      <h3><%= link_to 'Change Password', '#'%></h3>
+    </div>
+    <div class='user-account__right'>
+      <div class='field'>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :company %>
+        <%= f.text_field :company %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :fax %>
+        <%= f.text_field :fax %>
+      </div>
+      <%= f.submit 'Update' %>
+    </div>
+  <% end %>
+</div>

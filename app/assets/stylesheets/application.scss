@@ -394,3 +394,14 @@ nav.navbar {
     margin-top: 15px;
   }
 }
+
+.user-account__left {
+  @extend .col-md-6, .jumbotron;
+}
+
+.user-account__right {
+  @extend .col-md-6;
+  &>input[type='submit'] {
+    float: right;
+  }
+}

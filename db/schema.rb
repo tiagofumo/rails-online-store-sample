@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720041130) do
+ActiveRecord::Schema.define(version: 20160721080642) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "quantity"
@@ -95,6 +95,10 @@ ActiveRecord::Schema.define(version: 20160720041130) do
     t.text     "profile",                limit: 250
     t.string   "alias",                  limit: 50
     t.binary   "country"
+    t.string   "company"
+    t.string   "fax"
+    t.string   "phone"
+    t.integer  "privacy_setting"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

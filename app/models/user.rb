@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
                              # processors: [ :papercrop ]
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   # crop_attached_file :avatar
+  enum privacy_setting: [:public_profile, :restricted_profile, :private_profile]
 
   def first_name
     name.split.first

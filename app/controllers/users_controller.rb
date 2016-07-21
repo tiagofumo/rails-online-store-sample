@@ -77,6 +77,12 @@ class UsersController < ApplicationController
   end
 
   def update_account
+    if user_signed_in?
+      user_params = params.require(:user).permit(:name, :company,
+                                                 :phone, :fax)
+      @current_user.update_without_password(user_params)
+      redirect_to :account
+    end
   end
 
   private
