@@ -7,6 +7,7 @@ gem 'paperclip',               '4.3.6'
 gem 'devise',                  '4.1.1'
 gem 'omniauth-facebook',       '3.0.0'
 gem 'social-share-button',     '0.3.1'
+gem 'country_select',          '2.5.2'
 
 gem 'bcrypt',                  '3.1.11'
 gem 'faker',                   '1.4.2'

@@ -64,7 +64,19 @@ class UsersController < ApplicationController
   def profile
   end
 
+  def update_profile
+    if user_signed_in?
+      user_params = params.require(:user).permit(:alias, :avatar,
+                                                 :country, :profile)
+      @current_user.update_without_password(user_params)
+      redirect_to :profile
+    end
+  end
+
   def account
+  end
+
+  def update_account
   end
 
   private

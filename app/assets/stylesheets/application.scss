@@ -18,7 +18,7 @@ a {
 
 input[type=text], input[type=email],
 input[type=password], input[type=number],
-select {
+select, textarea {
   @extend .form-control;
 }
 
@@ -357,20 +357,40 @@ nav.navbar {
 }
 
 .btn-file {
-    position: relative;
-    overflow: hidden;
-    &>input[type=file] {
-      position: absolute;
-      top: 0;
-      right: 0;
-      min-width: 100%;
-      min-height: 100%;
-      text-align: right;
-      filter: alpha(opacity=0);
-      opacity: 0;
-      outline: none;
-      background: white;
-      cursor: inherit;
-      display: block;
-    }
+  position: relative;
+  overflow: hidden;
+  &>input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+  }
+}
+
+.user-profile__left {
+  @extend .col-sm-5;
+  .user-profile__picture {
+    border-radius: 6px;
+  }
+  &>.btn-file {
+    width: 300px;
+    font-family: 'Montserrat';
+    color: $primary-color;
+  }
+}
+
+.user-profile__right {
+  @extend .col-sm-7;
+  &>input[type='submit'] {
+    float: right;
+    margin-top: 15px;
+  }
 }

@@ -1,0 +1,34 @@
+<h3 class='header-text'>Profile</h3>
+<div class='default-panel row'>
+  <%= form_for(@current_user, url: profile_path,
+               html: { multipart: true }) do |f| %>
+    <div class='user-profile__left'>
+      <div class='field'>
+        <%= image_tag @current_user.avatar.url(:medium),
+                                              class: 'user-profile__picture' %>
+      </div>
+      <%= render partial: 'layouts/file_field',
+                 locals: { form: f, field: :avatar } %>
+    </div>
+    <div class='user-profile__right'>
+      <div class='field'>
+        <%= f.label :alias %>
+        <%= f.text_field :alias %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :country %>
+        <%= country_select "user", "country",
+                                   include_blank: 'Select Country',
+                                   selected: @current_user.country %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :profile %>
+        <%= f.text_area :profile, rows: 4 %>
+        <a href='javascript:void(0)' class='format_help'>formatting help</a>
+      </div>
+      <%= f.submit 'Update Profile' %>
+    </div>
+  <% end %>
+</div>
