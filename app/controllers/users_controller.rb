@@ -87,11 +87,21 @@ class UsersController < ApplicationController
 
   def edit_password
     login_needed
-
   end
 
   def update_password
     login_needed
+    user_params = params.require(:user).permit(:password, :password_confirmation)
+    if @current_user.valid_password? params.require(:user)[:old_password]
+      if @current_user.update_with_password user_params
+        sign_in @current_user, bypass: true
+        redirect_to :account
+      else
+        redirect_to account_password_path, alert: 'Error while updating password.'
+      end
+    else
+      redirect_to account_password_path, alert: 'Your inserted the wrong password.'
+    end
   end
 
   private
@@ -102,7 +112,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :avatar, :password, :email)
+      params.require(:user).permit(:name, :password, :email)
     end
 
     def login_needed

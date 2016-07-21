@@ -7,7 +7,7 @@
       <p>Your email address is
         <b><%= @current_user.confirmed? ? 'verified' : 'not verified' %></b>.
       </p>
-      <h3><%= link_to 'Change Password', '#'%></h3>
+      <h3><%= link_to 'Change Password', account_password_path %></h3>
     </div>
     <div class='user-account__right'>
       <div class='field'>
