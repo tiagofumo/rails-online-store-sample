@@ -90,7 +90,7 @@ form>div.actions{
     }
     .account-header-menu {
       font-family: 'Montserrat';
-      .account-header-menu__hello {
+      .account-header-menu__hello, .dropdown-menu>li>a {
         color: #555;
       }
     }
