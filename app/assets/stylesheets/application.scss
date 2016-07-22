@@ -415,3 +415,33 @@ nav.navbar {
     float: right;
   }
 }
+
+#myCarousel {
+  &>.carousel-inner {
+    padding: 0px 2px 2px;
+  }
+  &>.carousel-control {
+      width: auto;
+      color: $primary-color;
+      background-image: none;
+  }
+}
+
+.carousel-page-number {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2px;
+  font-family: 'Montserrat';
+  color: gray;
+}
+
+.new-products-carousel-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 10px;
+  font-family: 'Montserrat';
+  &>h4 {
+    margin-bottom: 3px;
+  }
+}
