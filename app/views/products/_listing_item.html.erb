@@ -1,7 +1,11 @@
 <div class='product-listing-item'>
   <%= link_to image_tag(listing_item.primary_picture.url(:medium)),
               listing_item, class: 'product-listing-item__picture' %>
-  <span><%= link_to listing_item.name, listing_item %></span>
-  <span><%= listing_item.price %></span>
+  <span class='product-listing-item__name'>
+    <%= link_to listing_item.name, listing_item %>
+  </span>
+  <h3 class='product-listing-item__price'>
+    <%= number_to_currency listing_item.price %>
+  </h3>
   <%= render 'products/add_to_cart', product_id: listing_item.id %>
 </div>

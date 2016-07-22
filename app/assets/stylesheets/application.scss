@@ -193,7 +193,7 @@ form>div.actions{
   align-items: center;
   padding: 5px;
   transition: all 0.05s ease-in;
-  height: 350px;
+  height: 335px;
   &:hover {
     -webkit-box-shadow: 0px 2px 6px 3px rgba(199,199,199,1);
     -moz-box-shadow: 0px 2px 6px 3px rgba(199,199,199,1);
@@ -206,6 +206,16 @@ form>div.actions{
     &>img {
       margin: auto;
     }
+  }
+  .product-listing-item__name {
+    height: 65px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    text-align: center;
+  }
+  .product-listing-item__price {
+    margin-top: 0px;
+    margin-bottom: 5px;
   }
 }
 
