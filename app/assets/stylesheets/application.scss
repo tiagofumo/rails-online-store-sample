@@ -451,7 +451,8 @@ nav.navbar {
   border-bottom: 1px solid lightgray;
   margin-bottom: 10px;
   font-family: 'Montserrat';
-  &>h4 {
-    margin-bottom: 3px;
+  padding-bottom: 3px;
+  &>a {
+    cursor: pointer;
   }
 }
