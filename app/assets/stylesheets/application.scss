@@ -167,6 +167,7 @@ form>div.actions{
 
 .add_to_cart {
   background-color: $primary-color;
+  font-family: 'Montserrat';
 }
 
 .product-listing-top>.pagination {
@@ -199,6 +200,7 @@ form>div.actions{
   padding: 5px;
   transition: all 0.05s ease-in;
   height: 335px;
+  font-family: 'Montserrat';
   &:hover {
     -webkit-box-shadow: 0px 2px 6px 3px rgba(199,199,199,1);
     -moz-box-shadow: 0px 2px 6px 3px rgba(199,199,199,1);
@@ -214,7 +216,6 @@ form>div.actions{
   }
   .product-listing-item__name {
     height: 65px;
-    font-family: 'Montserrat';
     font-size: 15px;
     text-align: center;
   }
@@ -266,6 +267,10 @@ div>.per_page {
   flex-direction: column;
   align-items: center;
   padding-bottom: 20px;
+  font-family: 'Montserrat';
+  .product-price {
+    font-size: 28px;
+  }
 }
 
 .product-sku {

@@ -4,8 +4,8 @@
   <span class='product-listing-item__name'>
     <%= link_to listing_item.name, listing_item %>
   </span>
-  <h3 class='product-listing-item__price'>
+  <h4 class='product-listing-item__price'>
     <%= number_to_currency listing_item.price %>
-  </h3>
+  </h4>
   <%= render 'products/add_to_cart', product_id: listing_item.id %>
 </div>
