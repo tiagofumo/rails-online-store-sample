@@ -88,6 +88,10 @@ form>div.actions{
       margin-right: 10px;
     }
     .account-header-menu {
+      font-family: 'Montserrat';
+      .account-header-menu__hello {
+        color: #555;
+      }
     }
   }
 }
