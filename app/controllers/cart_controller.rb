@@ -23,7 +23,8 @@ class CartController < ApplicationController
         success = item.save
       end
     end
-    render json: { success: success }
+    qty = CartItem.where(user_id: @current_user).sum(:quantity)
+    render json: { success: success, cart_quantity: qty }
   end
 
   def destroy_item
