@@ -428,19 +428,27 @@ nav.navbar {
 
 #myCarousel {
   &>.carousel-inner {
-    padding: 0px 12px 2px;
+    padding: 0px 2px 2px;
   }
   &>.carousel-control {
-      width: auto;
-      color: $primary-color;
-      background-image: none;
+    width: auto;
+    color: $primary-color;
+    background-image: none;
+    &.left>.glyphicon {
+      top: 6px;
+      left: 15px;
+    }
+    &.right>.glyphicon {
+      top: 5px;
+      right: 15px;
+    }
   }
 }
 
 .carousel-page-number {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 2px;
+  justify-content: center;
+  margin-bottom: 5px;
   font-family: 'Montserrat';
   color: gray;
 }
