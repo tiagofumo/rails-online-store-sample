@@ -428,7 +428,7 @@ nav.navbar {
 
 .user-account__right {
   @extend .col-md-6;
-  &>input[type='submit'] {
+  &>input[type='submit'], &>.actions>input[type='submit'] {
     float: right;
   }
 }

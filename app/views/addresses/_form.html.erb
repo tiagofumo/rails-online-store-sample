@@ -1,0 +1,65 @@
+<%= form_for(@address) do |f| %>
+  <% if @address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+      <% @address.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='user-account__left'>
+    <h1><%= title %></h1>
+    <%= link_to 'Back to Address Book', addresses_path %>
+  </div>
+
+  <div class='user-account__right'>
+    <div class="field">
+      <%= f.label :title, "Address' Title" %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :receiver, "Receiver's Name " %><br>
+      <%= f.text_field :receiver %>
+    </div>
+    <div class="field">
+      <%= f.label :company %><br>
+      <%= f.text_field :company %>
+    </div>
+    <div class="field">
+      <%= f.label :street %><br>
+      <%= f.text_field :street %>
+    </div>
+    <div class="field">
+      <%= f.label :street_extra, 'Suite / Apartment' %><br>
+      <%= f.text_field :street_extra %>
+    </div>
+    <div class="field">
+      <%= f.label :city %><br>
+      <%= f.text_field :city %>
+    </div>
+    <div class="field">
+      <%= f.label :postal_code, "Zip / Postcode" %><br>
+      <%= f.text_field :postal_code, maxlength: 10 %>
+    </div>
+    <div class="field">
+      <%= f.label :state %><br>
+      <%= f.text_field :state %>
+    </div>
+    <div class="field">
+      <%= f.label :country %><br>
+      <%= country_select 'address', 'country',
+        include_blank: 'Select Country',
+        selected: @address.country %>
+    </div>
+    <div class="field">
+      <%= f.label :phone %><br>
+      <%= f.text_field :phone %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

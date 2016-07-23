@@ -1,0 +1,19 @@
+<% @addresses.each do |address| %>
+  <div class='address-item'>
+    <%= address.title %>
+    <%= address.receiver %>
+    <%= address.street %>
+    <%= address.country %>
+    <%= address.city %>
+    <%= address.postal_code %>
+    <%= address.phone %>
+    <%= address.state %>
+    <%= address.user %>
+    <%= link_to 'Edit', edit_address_path(address) %>
+    <%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+
+<br>
+
+<%= link_to 'New Address', new_address_path %>

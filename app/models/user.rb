@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   # crop_attached_file :avatar
   enum privacy_setting: [:public_profile, :restricted_profile, :private_profile]
   attr_accessor :old_password
+  has_many :addresses
 
   def first_name
     name.split.first
