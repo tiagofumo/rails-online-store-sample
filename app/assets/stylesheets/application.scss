@@ -417,6 +417,13 @@ nav.navbar {
 
 .user-account__left {
   @extend .col-md-6, .jumbotron;
+  &>a {
+    font-size: 24px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    font-weight: 500;
+  }
 }
 
 .user-account__right {
