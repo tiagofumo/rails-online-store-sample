@@ -10,6 +10,7 @@ class AddressesController < ApplicationController
   # GET /addresses/1
   # GET /addresses/1.json
   def show
+    check_ownership(@address.user_id)
   end
 
   # GET /addresses/new
@@ -19,6 +20,7 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1/edit
   def edit
+    check_ownership(@address.user_id)
   end
 
   # POST /addresses
@@ -29,7 +31,7 @@ class AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to @address, notice: 'Address was successfully created.' }
+        format.html { redirect_to addresses_path }
         format.json { render :show, status: :created, location: @address }
       else
         format.html { render :new }
@@ -41,9 +43,10 @@ class AddressesController < ApplicationController
   # PATCH/PUT /addresses/1
   # PATCH/PUT /addresses/1.json
   def update
+    check_ownership(@address.user_id)
     respond_to do |format|
       if @address.update(address_params)
-        format.html { redirect_to @address, notice: 'Address was successfully updated.' }
+        format.html { redirect_to addresses_path }
         format.json { render :show, status: :ok, location: @address }
       else
         format.html { render :edit }
@@ -55,9 +58,10 @@ class AddressesController < ApplicationController
   # DELETE /addresses/1
   # DELETE /addresses/1.json
   def destroy
+    check_ownership(@address.user_id)
     @address.destroy
     respond_to do |format|
-      format.html { redirect_to addresses_url, notice: 'Address was successfully destroyed.' }
+      format.html { redirect_to addresses_url }
       format.json { head :no_content }
     end
   end

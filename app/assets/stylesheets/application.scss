@@ -431,6 +431,16 @@ nav.navbar {
   &>input[type='submit'], &>.actions>input[type='submit'] {
     float: right;
   }
+  .actions {
+    margin-top: 15px;
+    &>a {
+      @extend .button;
+      margin-right: 5px;
+    }
+  }
+  .address-item {
+    margin-bottom: 20px;
+  }
 }
 
 #myCarousel {
