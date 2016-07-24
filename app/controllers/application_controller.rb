@@ -10,6 +10,17 @@ class ApplicationController < ActionController::Base
         redirect_to new_user_session_path, alert: 'Please log in.'
       end
     end
+
+    def check_ownership(user_id)
+      login_needed
+      if @current_user.id != user_id
+        page_not_found("Wrong Owner")
+      end
+    end
+
+    def page_not_found(message = 'Not Found')
+      raise ActionController::RoutingError.new(message)
+    end
   private
     def load_user
       if user_signed_in? then
