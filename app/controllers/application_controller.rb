@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :load_user, :load_categories, :load_cart_size
 
+  protected
+    def login_needed
+      if !user_signed_in?
+        redirect_to new_user_session_path, alert: 'Please log in.'
+      end
+    end
   private
     def load_user
       if user_signed_in? then

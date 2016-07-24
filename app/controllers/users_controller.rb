@@ -114,10 +114,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :password, :email)
     end
-
-    def login_needed
-      if !user_signed_in?
-        redirect_to new_user_session_path, alert: 'Please log in.'
-      end
-    end
 end
