@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  base_cost: 9.99
+  extra_cost_per_gram: 9.99
+  base_cost_max_weight: 1
+  delivery_time_min: 1
+  delivery_time_max: 1
+
+two:
+  name: MyString
+  base_cost: 9.99
+  extra_cost_per_gram: 9.99
+  base_cost_max_weight: 1
+  delivery_time_min: 1
+  delivery_time_max: 1
