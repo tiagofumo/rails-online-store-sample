@@ -7,7 +7,7 @@
     <span class='cart_footer__subtotal'>
       Subtotal: <%= number_to_currency cart_total @cart_items %>
     </span>
-    <form action='/orders/checkout' >
+    <form action='<%= new_order_path %>' >
       <input type='submit' value='Checkout' >
     </form>
   </div>

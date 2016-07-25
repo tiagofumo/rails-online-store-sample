@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :addresses
   get    'cart'     => 'cart#index'
   post   'cart'     => 'cart#add_item'

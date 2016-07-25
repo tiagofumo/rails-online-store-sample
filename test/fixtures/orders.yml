@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 1
+  tracking_number: MyString
+  user_id: 
+  address_id: 
+  shipping_method_id: 
+
+two:
+  status: 1
+  tracking_number: MyString
+  user_id: 
+  address_id: 
+  shipping_method_id: 
