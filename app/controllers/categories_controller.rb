@@ -11,11 +11,11 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     params[:per_page] = 28 if !params.key? :per_page
-    @products = Product.includes(:primary_picture).
-                        where(category_id: @category.id).
-                        order(name: :ASC).
-                        paginate(page: params[:page],
-                                 per_page: params[:per_page])
+    @products = @category.products.
+                          includes(:primary_picture).
+                          order(name: :ASC).
+                          paginate(page: params[:page],
+                                   per_page: params[:per_page])
     render 'products/index'
   end
 
