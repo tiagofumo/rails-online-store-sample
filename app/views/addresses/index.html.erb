@@ -6,18 +6,7 @@
   <h3>Address Book</h3>
   <% @addresses.each do |address| %>
     <div class='address-item'>
-      <b><%= address.title %></b><br>
-      <%= address.receiver %><br>
-      <% if !address.company.empty? && !address.company.nil? %>
-        <%= address.company %><br>
-      <% end %>
-      <%= address.street %><br>
-      <% if !address.street_extra.empty? && !address.street_extra.nil? %>
-        <%= address.street_extra %><br>
-      <% end %>
-      <%= "#{address.city}, #{address.state}, #{address.postal_code}" %><br>
-      <%= address.country_name %><br>
-      <%= address.phone %><br>
+      <%= render 'show_single', address: address %>
       <div class='actions'>
         <%= link_to 'Edit', edit_address_path(address) %>
         <%= link_to 'Delete', address, method: :delete %>
