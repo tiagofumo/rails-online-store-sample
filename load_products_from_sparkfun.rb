@@ -1,20 +1,14 @@
 require 'json'
 require 'open-uri'
 require 'pp'
-require 'xmlsimple'
 
-# Destroy all categories first
-# ProductImage.where.not(sparkfun_link: nil).destroy_all
-# Product.all.destroy_all
+# Destroy all products first
+# ProductImage.where.not(sparkfun_link: nil).delete_all
+# Product.where.not(sparkfun_id: nil).destroy_all
 
-products = XmlSimple.xml_in('/home/tiagofumo/Downloads/products.xml')['product']
+products = JSON.parse open('./products.json').read
 
-categories = Category.where.not(sparkfun_id: nil)
-categories_hash = {}
-
-categories.each do |category|
-  categories_hash[category.name] = category.id
-end
+categories = Category.where.not(sparkfun_id: nil).to_a.index_by(&:sparkfun_id)
 
 counter = 0
 products.each do |product|
@@ -24,37 +18,34 @@ products.each do |product|
   end
   counter += 1
 
-  category_id = categories_hash[product['category'][0]['content']]
+  p = Product.create sparkfun_id: product['id'],
+                     sku: product['sku'],
+                     name: product['name'],
+                     description: product['description'],
+                     created_at: product['date_published'],
+                     updated_at: product['date_published'],
+                     price: product['price'],
+                     stock: product['quantity'],
+                     backorder_allowed: product['backorder_allowed'],
+                     rohs: product['is_rohs_compliant'],
+                     open_source: product['is_oshw'],
+                     pack_length: product['pack_length'].gsub(/\D/, ''),
+                     pack_width: product['pack_width'].gsub(/\D/, ''),
+                     pack_height: product['pack_height'].gsub(/\D/, ''),
+                     weight: product['packed_weight'].gsub(/[a-zA-Z]/, '').to_f * 450
 
-  p = Product.create name: product['name'][0],
-                     sparkfun_id: product['id'].to_i,
-                     sku: product['sku'][0],
-                     price: product['price'][0].to_i,
-                     stock: product['quantity'][0].to_i,
-                     backorder_allowed: product['backorderAllowed'][0] == 'true',
-                     rohs: product['RoHS'][0] == 'true',
-                     open_source: product['openSource'] == 'true',
-                     country: product['country'][0],
-                     pack_length: product['packLength'][0].to_i,
-                     pack_width: product['packWidth'][0].to_i,
-                     pack_height: product['packHeight'][0].to_i,
-                     weight: product['weight'][0].to_i,
-                     description: product['description'][0],
-                     category_id: category_id
-  default = false
-  default_found = false
-  product['image'].each do |image|
-    if image.key? 'default'
-      default = image['id']
-      default_found = true
-    elsif !default_found &&(!default || image['large'][0].slice(-6, 2) == '01')
-      default = image['id']
+  product['categories'].each do |category_hash|
+    key = category_hash.keys.first.to_i
+    if categories.key? key
+      p.categories.push categories[key]
     end
   end
 
-  product['image'].each do |image|
+  default_picture = true
+  product['images'].each do |image_hash|
     ProductPicture.create product_id: p.id,
-                          default: image['id'] == default,
-                          sparkfun_link: image['large'][0]
+                          default: default_picture,
+                          sparkfun_link: image_hash['600']
+    default_picture = false
   end
 end
