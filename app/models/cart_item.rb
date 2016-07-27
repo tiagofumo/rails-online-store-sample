@@ -5,4 +5,8 @@ class CartItem < ActiveRecord::Base
   def weight
     product.weight * quantity
   end
+
+  def cost
+    product.price * quantity
+  end
 end
