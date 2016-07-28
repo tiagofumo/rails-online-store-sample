@@ -16,4 +16,12 @@ class Order < ActiveRecord::Base
   def units
     order_items.inject(0) { |sum, i| sum + i.quantity }
   end
+
+  def status_name
+    names = {
+      new_order: 'New Order',
+      ready_for_pickup: 'Ready for Pickup',
+    }
+    names[status.to_sym] || status.capitalize
+  end
 end
