@@ -43,32 +43,7 @@
     </div>
   </div>
   <div class='col-sm-7'>
-    <table class='table'>
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th></th>
-          <th class='indicator'>Price</th>
-          <th class='indicator'>Quantity</th>
-          <th class='indicator'>Total</th>
-        </tr>
-      </thead>
-      <% @cart_items.each do |cart_item| %>
-        <tr class='cart-item'>
-          <td width='13%'>
-            <%= image_tag cart_item.product.primary_picture.url(:thumb) %>
-          </td>
-          <td><%= cart_item.product.name %></td>
-          <td class='indicator' width='12%'>
-            <%= number_to_currency cart_item.product.price %>
-          </td>
-          <td class='indicator' width='8%'><%= cart_item.quantity %></td>
-          <td class='indicator' width='18%'>
-            <%= number_to_currency cart_item.cost %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
+    <%= render 'cart/table_listing', cart_items: @cart_items %>
     <div class='order-subtotal'>
       <span><b>Subtotal</b></span>
       <span class='order-subtotal__value'>
