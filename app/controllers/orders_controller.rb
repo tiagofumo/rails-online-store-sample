@@ -15,6 +15,9 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @addresses = Address.where user_id: @current_user.id
+    @cart_items = CartItem.where user_id: @current_user.id
+    @shipping_methods = ShippingMethod.all
   end
 
   # GET /orders/1/edit

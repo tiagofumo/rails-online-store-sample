@@ -481,3 +481,20 @@ nav.navbar {
     cursor: pointer;
   }
 }
+
+table.table {
+  .indicator {
+    text-align: right;
+  }
+}
+
+.order-subtotal {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  font-size: 18px;
+  margin-bottom: 8px;
+  .order-subtotal__value {
+    width: 20%;
+  }
+}

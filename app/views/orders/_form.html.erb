@@ -7,22 +7,88 @@
       </h2>
 
       <ul>
-      <% @order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
+  <div class='col-sm-5'>
+    <div class='field'>
+      <%= render 'addresses/show_single', address: @addresses.last %>
+      <select name='order[address_id]'>
+        <% @addresses.each do |address| %>
+          <option value='<%= address.id %>'>
+            <%= address.title %></b>, <%= address.receiver %>
+            <% if address.company && !address.company.empty? %>
+              ,<%= address.company %>
+            <% end %>
+          </option>
+        <% end %>
+      </select>
+    </div>
 
-  <div class="field">
-    <%= f.label :address_id %><br>
-    <%= f.text_field :address_id %>
+    <div class="field">
+      <%= f.label :shipping_method_id %><br>
+      <% @shipping_methods.each do |shipping_method| %>
+        <input type='radio' id='shipping_method_<%= shipping_method.id %>'
+        name='order[shipping_method_id]' value='<%= shipping_method.id %>' />
+
+        <label for='shipping_method_<%= shipping_method.id %>'>
+          <%= shipping_method.name %>:
+          <%= number_to_currency(shipping_method.cost @cart_items) %>
+        </label>
+        <br>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :shipping_method_id %><br>
-    <%= f.text_field :shipping_method_id %>
+  <div class='col-sm-7'>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th></th>
+          <th class='indicator'>Price</th>
+          <th class='indicator'>Quantity</th>
+          <th class='indicator'>Total</th>
+        </tr>
+      </thead>
+      <% @cart_items.each do |cart_item| %>
+        <tr class='cart-item'>
+          <td width='13%'>
+            <%= image_tag cart_item.product.primary_picture.url(:thumb) %>
+          </td>
+          <td><%= cart_item.product.name %></td>
+          <td class='indicator' width='12%'>
+            <%= number_to_currency cart_item.product.price %>
+          </td>
+          <td class='indicator' width='8%'><%= cart_item.quantity %></td>
+          <td class='indicator' width='18%'>
+            <%= number_to_currency cart_item.cost %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <div class='order-subtotal'>
+      <span><b>Subtotal</b></span>
+      <span class='order-subtotal__value'>
+        <%= number_to_currency @cart_items.inject(0) { |sum, i| sum + i.cost } %>
+      </span>
+    </div>
+    <div class='order-subtotal'>
+      <span><b>Shipping</b></span>
+      <span class='order-subtotal__value'>
+        <%= number_to_currency(@shipping_methods[1].cost @cart_items) %>
+      </span>
+    </div>
+    <div class='order-subtotal'>
+      <span><b>Total</b></span>
+      <span class='order-subtotal__value'>
+        <%= number_to_currency(@shipping_methods[1].cost(@cart_items) + @cart_items.inject(0) { |sum, i| sum + i.cost }) %>
+      </span>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions col-sm-12">
+    <%= f.submit 'Checkout' %>
   </div>
 <% end %>
