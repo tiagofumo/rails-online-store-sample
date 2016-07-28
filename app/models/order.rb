@@ -24,4 +24,16 @@ class Order < ActiveRecord::Base
     }
     names[status.to_sym] || status.capitalize
   end
+
+  def subtotal
+    order_items.inject(0) { |sum, i| sum + i.cost }
+  end
+
+  def shipping_cost
+    shipping_method.cost order_items
+  end
+
+  def total_cost
+    subtotal + shipping_cost
+  end
 end
