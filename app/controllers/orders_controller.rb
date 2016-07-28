@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.includes(:order_items, :shipping_method).all
   end
 
   # GET /orders/1
