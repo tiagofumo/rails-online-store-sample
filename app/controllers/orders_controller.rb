@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    login_needed
     @order = Order.new
     @addresses = Address.where user_id: @current_user.id
     @cart_items = CartItem.where user_id: @current_user.id
