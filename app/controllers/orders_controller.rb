@@ -28,11 +28,24 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    login_needed
     @order = Order.new(order_params)
-
+    @order.user_id = @current_user.id
+    @order.status = :new_order
+    @cart_items = CartItem.includes(:product).where user_id: @current_user.id
+    @order.transaction do
+      @order.save!
+      @cart_items.each do |cart_item|
+        OrderItem.create price: cart_item.product.price,
+                         quantity: cart_item.quantity,
+                         product_id: cart_item.product_id,
+                         order_id: @order.id
+      end
+      CartItem.delete_all user_id: @current_user.id
+    end
     respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+      if @order.id
+        format.html { redirect_to orders_path, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -73,6 +86,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:status, :tracking_number, :user_id, :address_id, :shipping_method_id)
+      params.require(:order).permit(:address_id, :shipping_method_id)
     end
 end

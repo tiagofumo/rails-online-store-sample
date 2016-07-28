@@ -10,7 +10,7 @@
       <th>User</th>
       <th>Address</th>
       <th>Shipping method</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -23,7 +23,6 @@
         <td><%= order.address %></td>
         <td><%= order.shipping_method %></td>
         <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
