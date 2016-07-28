@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :orders
+  resources :orders, except: [:edit, :delete, :update]
   resources :addresses
 
   get    'cart'     => 'cart#index'
@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 
   devise_for :users, skip: :registrations
 
-  resources :users
+  resources :users, except: [:edit, :update, :index]
 
-  resources :products
-  resources :categories
+  resources :products, only: [:show, :index]
+  resources :categories, only: [:index, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
