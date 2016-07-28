@@ -1,29 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @order.status %>
-</p>
-
-<p>
-  <strong>Tracking number:</strong>
-  <%= @order.tracking_number %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @order.user %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @order.address %>
-</p>
-
-<p>
-  <strong>Shipping method:</strong>
-  <%= @order.shipping_method %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class='user-account__left'>
+  <h2>Order #<%= @order.id %></h2>
+  <p>Status: <%= @order.shipping_method.name %></p>
+  <p>Shipping</p>
+  <%= render 'addresses/show_single', address: @order.address %>
+  <p><b>Track:</b></p>
+  <p><%= @order.tracking_number || 'Not available yet' %></p>
+</div>
+<div class='user-account__right'>
+  <%= render 'cart/table_listing', cart_items: @order.order_items %>
+  <div class='order-subtotal'>
+    <span><b>Subtotal</b></span>
+    <span class='order-subtotal__value'>
+      <%= number_to_currency @order.subtotal %>
+    </span>
+  </div>
+  <div class='order-subtotal'>
+    <span><b>Shipping</b></span>
+    <span class='order-subtotal__value'>
+      <%= number_to_currency @order.shipping_cost %>
+    </span>
+  </div>
+  <div class='order-subtotal'>
+    <span><b>Total</b></span>
+    <span class='order-subtotal__value'>
+      <%= number_to_currency @order.total_cost %>
+    </span>
+  </div>
+</div>

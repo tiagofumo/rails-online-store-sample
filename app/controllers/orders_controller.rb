@@ -1,6 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
-
   # GET /orders
   # GET /orders.json
   def index
@@ -10,6 +8,8 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order = Order.includes({order_items: [product: [:primary_picture]]},
+                            :shipping_method, :address).find(params[:id])
   end
 
   # GET /orders/new
