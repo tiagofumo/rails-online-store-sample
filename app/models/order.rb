@@ -4,4 +4,16 @@ class Order < ActiveRecord::Base
   belongs_to :address
   belongs_to :shipping_method
   enum status: [:new_order, :picking, :packing, :shipped, :ready_for_pickup]
+
+  def total_cost
+    order_items.inject(0) { |sum, i| sum + (i.price * i.quantity) }
+  end
+
+  def items
+    order_items.length
+  end
+
+  def units
+    order_items.inject(0) { |sum, i| sum + i.quantity }
+  end
 end
