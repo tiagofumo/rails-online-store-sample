@@ -31,6 +31,7 @@ group :development, :test do
   gem 'spring',                '1.1.3'
   gem 'apipie-rails',          '0.3.6'
   gem 'mailcatcher',           '0.6.4'
+  gem 'single_test',           '0.6.0'
 end
 
 group :development do
