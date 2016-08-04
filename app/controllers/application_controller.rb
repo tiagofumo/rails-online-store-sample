@@ -11,9 +11,8 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def check_ownership(user_id)
-      login_needed
-      if @current_user.id != user_id
+    def check_ownership(user_id = params[:id])
+      if !user_signed_in? || @current_user.id != user_id
         page_not_found("Wrong Owner")
       end
     end
