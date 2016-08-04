@@ -1,14 +1,13 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  setup do
-    @user = users(:one)
-  end
+  include Devise::Test::ControllerHelpers
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:users)
+  setup do
+    @user = users(:george)
+    @unsaved_user = { name: 'example',
+                      email: 'example@example.com',
+                      password: '159753' }
   end
 
   test "should get new" do
@@ -18,10 +17,10 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     assert_difference('User.count') do
-      post :create, user: { name: @user.name }
-    end
+      post :create, user: @unsaved_user
+  end
 
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to root_url
   end
 
   test "should show user" do
@@ -29,21 +28,12 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @user
-    assert_response :success
-  end
-
-  test "should update user" do
-    patch :update, id: @user, user: { name: @user.name }
-    assert_redirected_to user_path(assigns(:user))
-  end
-
   test "should destroy user" do
+    sign_in @user
     assert_difference('User.count', -1) do
       delete :destroy, id: @user
     end
 
-    assert_redirected_to users_path
+    assert_redirected_to root_url
   end
 end

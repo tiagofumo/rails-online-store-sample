@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
   setup do
-    @order = orders(:one)
+    sign_in users(:george)
+    @order = orders(:george_local_pickup)
   end
 
   test "should get index" do
@@ -18,32 +21,18 @@ class OrdersControllerTest < ActionController::TestCase
 
   test "should create order" do
     assert_difference('Order.count') do
-      post :create, order: { address_id: @order.address_id, shipping_method_id: @order.shipping_method_id, status: @order.status, tracking_number: @order.tracking_number, user_id: @order.user_id }
+      post :create, order: { address_id: @order.address_id,
+                             shipping_method_id: @order.shipping_method_id,
+                             status: @order.status,
+                             tracking_number: @order.tracking_number,
+                             user_id: @order.user_id }
     end
 
-    assert_redirected_to order_path(assigns(:order))
+    assert_redirected_to orders_path
   end
 
   test "should show order" do
     get :show, id: @order
     assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @order
-    assert_response :success
-  end
-
-  test "should update order" do
-    patch :update, id: @order, order: { address_id: @order.address_id, shipping_method_id: @order.shipping_method_id, status: @order.status, tracking_number: @order.tracking_number, user_id: @order.user_id }
-    assert_redirected_to order_path(assigns(:order))
-  end
-
-  test "should destroy order" do
-    assert_difference('Order.count', -1) do
-      delete :destroy, id: @order
-    end
-
-    assert_redirected_to orders_path
   end
 end

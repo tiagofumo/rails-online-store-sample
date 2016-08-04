@@ -1,8 +1,11 @@
-require 'test_helper'
+require 'test_helper.rb'
 
 class AddressesControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
   setup do
-    @address = addresses(:one)
+    sign_in users(:george)
+    @address = addresses(:georges_home)
   end
 
   test "should get index" do
@@ -21,7 +24,7 @@ class AddressesControllerTest < ActionController::TestCase
       post :create, address: { city: @address.city, country: @address.country, phone: @address.phone, postal_code: @address.postal_code, receiver: @address.receiver, state: @address.state, street: @address.street, title: @address.title, user_id: @address.user_id }
     end
 
-    assert_redirected_to address_path(assigns(:address))
+    assert_redirected_to addresses_path
   end
 
   test "should show address" do
@@ -36,7 +39,7 @@ class AddressesControllerTest < ActionController::TestCase
 
   test "should update address" do
     patch :update, id: @address, address: { city: @address.city, country: @address.country, phone: @address.phone, postal_code: @address.postal_code, receiver: @address.receiver, state: @address.state, street: @address.street, title: @address.title, user_id: @address.user_id }
-    assert_redirected_to address_path(assigns(:address))
+    assert_redirected_to addresses_path
   end
 
   test "should destroy address" do
