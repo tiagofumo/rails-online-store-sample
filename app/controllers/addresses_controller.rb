@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: [:show, :edit, :update, :destroy]
+  before_action :login_needed, only: [:index, :new, :create]
+  before_action :set_address_and_check, only: [:show, :edit, :update, :destroy]
 
   # GET /addresses
   # GET /addresses.json
@@ -10,7 +11,6 @@ class AddressesController < ApplicationController
   # GET /addresses/1
   # GET /addresses/1.json
   def show
-    check_ownership(@address.user_id)
   end
 
   # GET /addresses/new
@@ -20,7 +20,6 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1/edit
   def edit
-    check_ownership(@address.user_id)
   end
 
   # POST /addresses
@@ -43,7 +42,6 @@ class AddressesController < ApplicationController
   # PATCH/PUT /addresses/1
   # PATCH/PUT /addresses/1.json
   def update
-    check_ownership(@address.user_id)
     respond_to do |format|
       if @address.update(address_params)
         format.html { redirect_to addresses_path }
@@ -58,7 +56,6 @@ class AddressesController < ApplicationController
   # DELETE /addresses/1
   # DELETE /addresses/1.json
   def destroy
-    check_ownership(@address.user_id)
     @address.destroy
     respond_to do |format|
       format.html { redirect_to addresses_url }
@@ -67,15 +64,15 @@ class AddressesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_address
-      @address = Address.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def address_params
       params.require(:address).permit(:title, :receiver, :company, :street,
                                       :street_extra, :city, :postal_code,
                                       :state, :country, :phone)
+    end
+
+    def set_address_and_check
+      @address = Address.find(params[:id])
+      check_ownership(@address.user_id)
     end
 end

@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :login_needed, only: [:index, :new, :create]
+  before_action :set_order_and_check, only: [:show]
+
   # GET /orders
   # GET /orders.json
   def index
@@ -80,8 +83,9 @@ class OrdersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_order
+    def set_order_and_check_ownership
       @order = Order.find(params[:id])
+      check_ownership(@order.user_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
