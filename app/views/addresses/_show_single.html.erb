@@ -1,10 +1,10 @@
 <b><%= address.title %></b><br>
 <%= address.receiver %><br>
-<% if !address.company.empty? && !address.company.nil? %>
+<% if !address.company.nil? && !address.company.empty? %>
   <%= address.company %><br>
 <% end %>
 <%= address.street %><br>
-<% if !address.street_extra.empty? && !address.street_extra.nil? %>
+<% if !address.street_extra.nil? && !address.street_extra.empty? %>
   <%= address.street_extra %><br>
 <% end %>
 <%= "#{address.city}, #{address.state}, #{address.postal_code}" %><br>
