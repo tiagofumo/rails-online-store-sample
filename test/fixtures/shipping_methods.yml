@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+usps_firstclass:
+  name: USPS Firstclass
   base_cost: 9.99
-  extra_cost_per_gram: 9.99
-  base_cost_max_weight: 1
-  delivery_time_min: 1
-  delivery_time_max: 1
+  extra_cost_per_gram: 0.05
+  base_cost_max_weight: 450
+  delivery_time_min: 2
+  delivery_time_max: 4
 
-two:
-  name: MyString
-  base_cost: 9.99
-  extra_cost_per_gram: 9.99
-  base_cost_max_weight: 1
-  delivery_time_min: 1
-  delivery_time_max: 1
+local_pickup:
+  name: Local Pickup
+  base_cost: 0.00
+  extra_cost_per_gram: 0.00
+  base_cost_max_weight: 0
+  delivery_time_min: 0
+  delivery_time_max: 0

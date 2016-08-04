@@ -1,11 +1,60 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+<% count = 0 %>
+relationship_<%= (count =+ 1) %>:
+  parent: nil
+  child: arduino
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+relationship_<%= (count =+ 1) %>:
+  parent: arduino
+  child: arduino_shields
+
+relationship_<%= (count =+ 1) %>:
+  parent: arduino
+  child: arduino_boards
+
+relationship_<%= (count =+ 1) %>:
+  parent: arduino
+  child: arduino_others
+
+relationship_<%= (count =+ 1) %>:
+  parent: nil
+  child: raspberry_pi
+
+relationship_<%= (count =+ 1) %>:
+  parent: nil
+  child: development_tools
+
+relationship_<%= (count =+ 1) %>:
+  parent: development_tools
+  child: arduino
+
+relationship_<%= (count =+ 1) %>:
+  parent: development_tools
+  child: raspberry_pi
+
+relationship_<%= (count =+ 1) %>:
+  parent: nil
+  child: components
+
+relationship_<%= (count =+ 1) %>:
+  parent: components
+  child: pic_microcontrollers
+
+relationship_<%= (count =+ 1) %>:
+  parent: components
+  child: avr_microcontrollers
+
+relationship_<%= (count =+ 1) %>:
+  parent: components
+  child: leds
+
+relationship_<%= (count =+ 1) %>:
+  parent: leds
+  child: 10mm_leds
+
+relationship_<%= (count =+ 1) %>:
+  parent: leds
+  child: 5mm_leds
+
+relationship_<%= (count =+ 1) %>:
+  parent: leds
+  child: 3mm_leds

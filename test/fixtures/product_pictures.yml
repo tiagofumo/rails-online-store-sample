@@ -1,7 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  product_id: 
+arduino_uno_primary_pic:
+  product: arduino_uno
+  sparkfun_link: 'https://cdn.sparkfun.com//assets/parts/6/3/4/3/11021-01c.jpg'
+  default: true
 
-two:
-  product_id: 
+arduino_uno_pic2:
+  product: arduino_uno
+  sparkfun_link: 'https://cdn.sparkfun.com//assets/parts/6/3/4/3/11021-02c.jpg'
+  default: false
+
+raspberry_pi_2_primary_pic:
+  product: raspberry_pi_2
+  sparkfun_link: 'https://cdn.sparkfun.com//assets/parts/1/0/5/5/3/13297-01.jpg'
+  default: true
+
+raspberry_pi_2_pic2:
+  product: raspberry_pi_2
+  sparkfun_link: 'https://cdn.sparkfun.com//assets/parts/1/0/5/5/3/13297-02.jpg'
+  default: false

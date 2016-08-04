@@ -1,23 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  receiver: MyString
-  street: MyString
-  country: 
-  city: MyString
-  postal_code: MyString
-  phone: MyString
-  state: MyString
-  user_id: 
+georges_home:
+  title: 'Home'
+  receiver: 'George'
+  street: '132 Mitchell St SW'
+  country: 'US'
+  city: 'Atlanta'
+  postal_code: '30303'
+  phone: '+1 404-524-5665'
+  state: 'Georgia'
+  user: george
 
-two:
-  title: MyString
-  receiver: MyString
-  street: MyString
-  country: 
-  city: MyString
-  postal_code: MyString
-  phone: MyString
-  state: MyString
-  user_id: 
+georges_company:
+  title: 'Job'
+  receiver: 'George'
+  street: '160 Ted Turner Dr NW'
+  country: 'US'
+  city: 'Atlanta'
+  postal_code: '30303'
+  phone: '+1 404-688-8600'
+  state: 'Georgia'
+  user: george

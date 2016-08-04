@@ -1,11 +1,5 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+george_one:
+  product: arduino_uno
+  quantity: 2
+  user: george
 
-one:
-  quantity: 1
-  product_id: 
-  user_id: 
-
-two:
-  quantity: 1
-  product_id: 
-  user_id: 

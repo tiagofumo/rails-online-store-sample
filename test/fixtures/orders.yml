@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  status: 1
-  tracking_number: MyString
-  user_id: 
-  address_id: 
-  shipping_method_id: 
+george_local_pickup:
+  status: <%= Order.statuses[:new_order] %>
+  tracking_number:
+  user: george
+  address: georges_home
+  shipping_method: local_pickup
 
-two:
-  status: 1
-  tracking_number: MyString
-  user_id: 
-  address_id: 
-  shipping_method_id: 
+george_usps_firstclass:
+  status: <%= Order.statuses[:new_order] %>
+  tracking_number:
+  user: george
+  address: georges_home
+  shipping_method: usps_firstclass
