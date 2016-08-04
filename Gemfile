@@ -4,7 +4,7 @@ ruby                           '2.3.1'
 gem 'rails',                   '4.2.6'
 
 gem 'paperclip',               '4.3.6'
-gem 'devise',                  '4.1.1'
+gem 'devise',                  '4.2.0'
 gem 'omniauth-facebook',       '3.0.0'
 gem 'social-share-button',     '0.3.1'
 gem 'country_select',          '2.5.2'
