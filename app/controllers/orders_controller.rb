@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :login_needed, only: [:index, :new, :create]
-  before_action :set_order_and_check, only: [:show]
+  before_action :set_order_and_check_ownership, only: [:show]
 
   # GET /orders
   # GET /orders.json
