@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
                              default_url: "johndoe_gray.png"
                              # processors: [ :papercrop ]
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates :name,  presence: true, length: { maximum: 50 }
   # crop_attached_file :avatar
   enum privacy_setting: [:public_profile, :restricted_profile, :private_profile]
   attr_accessor :old_password
