@@ -2,20 +2,15 @@ class OrdersController < ApplicationController
   before_action :login_needed, only: [:index, :new, :create]
   before_action :set_order_and_check_ownership, only: [:show]
 
-  # GET /orders
-  # GET /orders.json
   def index
     @orders = Order.includes(:order_items, :shipping_method).all
   end
 
-  # GET /orders/1
-  # GET /orders/1.json
   def show
     @order = Order.includes({order_items: [product: [:primary_picture]]},
                             :shipping_method, :address).find(params[:id])
   end
 
-  # GET /orders/new
   def new
     login_needed
     @order = Order.new
@@ -24,12 +19,9 @@ class OrdersController < ApplicationController
     @shipping_methods = ShippingMethod.all
   end
 
-  # GET /orders/1/edit
   def edit
   end
 
-  # POST /orders
-  # POST /orders.json
   def create
     login_needed
     @order = Order.new(order_params)
@@ -57,8 +49,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /orders/1
-  # PATCH/PUT /orders/1.json
   def update
     respond_to do |format|
       if @order.update(order_params)
@@ -71,8 +61,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1
-  # DELETE /orders/1.json
   def destroy
     @order.destroy
     respond_to do |format|
@@ -82,13 +70,11 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_order_and_check_ownership
       @order = Order.find(params[:id])
       check_ownership(@order.user_id)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:address_id, :shipping_method_id)
     end
