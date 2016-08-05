@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 george:
-  name: 'George'
+  name: 'George Testman'
   email: 'george@example.com'
   encrypted_password: <%= Devise::Encryptor.digest User, '123456' %>
   confirmed_at: <%= Date.today %>
