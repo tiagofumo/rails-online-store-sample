@@ -7,7 +7,7 @@
   <p><%= @order.tracking_number || 'Not available yet' %></p>
 </div>
 <div class='user-account__right'>
-  <%= render 'cart/table_listing', cart_items: @order.order_items %>
+  <%= render 'cart_items/table_listing', cart_items: @order.order_items %>
   <div class='order-subtotal'>
     <span><b>Subtotal</b></span>
     <span class='order-subtotal__value'>

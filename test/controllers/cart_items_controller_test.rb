@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CartControllerTest < ActionController::TestCase
+class CartItemsControllerTest < ActionController::TestCase
   include Devise::Test::ControllerHelpers
 
   setup do
@@ -13,12 +13,12 @@ class CartControllerTest < ActionController::TestCase
   end
 
   test "should add cart item" do
-    post :add_item, product_id: @product, quantity: 1
+    post :create, product_id: @product, quantity: 1
     assert_response :success
   end
 
   test "should destroy cart item" do
-    delete :destroy_item, id: @product
+    delete :destroy, id: @product
     assert_response :success
   end
 

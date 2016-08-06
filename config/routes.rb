@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   resources :orders, except: [:edit, :delete, :update]
   resources :addresses
 
-  get    'cart'     => 'cart#index'
-  post   'cart'     => 'cart#add_item'
-  delete 'cart/:id' => 'cart#destroy_item'
+  get    'cart'     => 'cart_items#index'
+  post   'cart'     => 'cart_items#create'
+  delete 'cart/:id' => 'cart_items#destroy'
 
   devise_for :users, skip: :registrations
 

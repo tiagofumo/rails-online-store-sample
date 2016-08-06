@@ -1,4 +1,4 @@
-class CartController < ApplicationController
+class CartItemsController < ApplicationController
   def index
     if user_signed_in?
       @cart_items = CartItem.where(user_id: @current_user.id).
@@ -8,7 +8,7 @@ class CartController < ApplicationController
     end
   end
 
-  def add_item
+  def create
     success = false
     if user_signed_in?
       items = CartItem.where(user_id: @current_user.id,
@@ -27,7 +27,7 @@ class CartController < ApplicationController
     render json: { success: success, cart_quantity: qty }
   end
 
-  def destroy_item
+  def destroy
     success = false
     if user_signed_in?
       if params[:id] && (item = CartItem.find_by id: params[:id]) &&
