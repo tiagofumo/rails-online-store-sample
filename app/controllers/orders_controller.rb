@@ -15,7 +15,8 @@ class OrdersController < ApplicationController
     login_needed
     @order = Order.new
     @addresses = Address.where user_id: @current_user.id
-    @cart_items = CartItem.where user_id: @current_user.id
+    @cart_items = CartItem.includes({ product: [:primary_picture] }).
+                           where user_id: @current_user.id
     @shipping_methods = ShippingMethod.all
   end
 
