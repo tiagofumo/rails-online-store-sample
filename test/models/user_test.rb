@@ -18,18 +18,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "User without name should not be valid" do
-    @user = User.new name: '',
-                     email: 'testing@example.com',
-                     password: '123456',
-                     password_confirmation: '123456'
+    @user.name = ''
     assert_not @user.valid?
   end
 
   test "User without email should not be valid" do
-    @user = User.new name: 'Testing Goldman',
-                     email: '',
-                     password: '123456',
-                     password_confirmation: '123456'
+    @user.email = ''
     assert_not @user.valid?
   end
 
