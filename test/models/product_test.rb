@@ -6,6 +6,10 @@ class ProductTest < ActiveSupport::TestCase
     @product = products(:arduino_uno)
   end
 
+  test 'Product should be valid' do
+    assert @product.valid?
+  end
+
   test 'Product without name should not be valid' do
     @product.name = ''
     assert_not @product.valid?
