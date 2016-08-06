@@ -2,6 +2,7 @@ class Category < ActiveRecord::Base
   has_and_belongs_to_many :products
   has_many :children, foreign_key: 'parent_id', class_name: 'CategoryRelationship'
   has_many :parents, foreign_key: 'child_id', class_name: 'CategoryRelationship'
+  validates :name, presence: true
 
   def self.get_tree
     categories = self.all.includes(:children).to_a.index_by(&:id)
