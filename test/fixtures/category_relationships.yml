@@ -1,6 +1,5 @@
 <% count = 0 %>
 relationship_<%= (count += 1) %>:
-  parent: nil
   child: arduino
 
 relationship_<%= (count += 1) %>:
@@ -16,11 +15,9 @@ relationship_<%= (count += 1) %>:
   child: arduino_others
 
 relationship_<%= (count += 1) %>:
-  parent: nil
   child: raspberry_pi
 
 relationship_<%= (count += 1) %>:
-  parent: nil
   child: development_tools
 
 relationship_<%= (count += 1) %>:
@@ -32,7 +29,6 @@ relationship_<%= (count += 1) %>:
   child: raspberry_pi
 
 relationship_<%= (count += 1) %>:
-  parent: nil
   child: components
 
 relationship_<%= (count += 1) %>:
