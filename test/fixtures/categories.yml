@@ -3,7 +3,7 @@
 arduino:
   name: Arduino
 
-rapberry_pi:
+raspberry_pi:
   name: Raspberry Pi
 
 development_tools:
