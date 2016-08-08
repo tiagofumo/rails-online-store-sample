@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class CartItemTest < ActiveSupport::TestCase
-  test "CartItem Weight should match" do
+  test "CartItem weight should match" do
     assert_equal 200, cart_items(:george_one).weight
   end
 
