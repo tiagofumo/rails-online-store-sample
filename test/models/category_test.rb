@@ -22,9 +22,7 @@ class CategoryTest < ActiveSupport::TestCase
     categories = Category.all.includes(children: :child).to_a.index_by(&:id)
     tree_to_array(Category.get_tree).each do |node|
       should_be = categories[node[0]].children.map {|i| i.child_id}.sort
-      assert(node[1].sort == should_be,
-             "Children array of #{node[0]}:#{categories[node[0]].name}, " \
-             "should be #{should_be} but was #{node[1]}")
+      assert_equal node[1].sort, should_be
     end
   end
 
