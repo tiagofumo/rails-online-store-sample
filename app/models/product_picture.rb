@@ -7,7 +7,7 @@ class ProductPicture < ActiveRecord::Base
 
   def url(type)
     if sparkfun_link?
-      s = sparkfun_link
+      s = sparkfun_link.clone
       h = { medium: 188, small: 92, thumb: 58 }
       if h.key? type
         s.insert 'https://cdn.sparkfun.com/'.length, "r/#{h[type]}-#{h[type]}/"
