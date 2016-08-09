@@ -3,3 +3,12 @@ george_one:
   quantity: 2
   user: george
 
+allan_one:
+  product: arduino_uno
+  quantity: 1
+  user: allan
+
+allan_two:
+  product: raspberry_pi_2
+  quantity: 4
+  user: allan
