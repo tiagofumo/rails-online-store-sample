@@ -32,6 +32,11 @@ group :development, :test do
   gem 'apipie-rails',          '0.3.6'
   gem 'mailcatcher',           '0.6.4'
   gem 'single_test',           '0.6.0'
+  gem 'capybara',              '2.7.1'
+  gem 'database_cleaner',      '1.5.3'
+  gem 'rspec-rails',           '3.5'
+  gem 'factory_girl_rails',    '4.7.0'
+  gem 'poltergeist',           '1.10.0'
 end
 
 group :development do
