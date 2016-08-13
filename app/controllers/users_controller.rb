@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :login_needed, only: [:profile, :update_profile, :account,
+                                      :update_account, :edit_password,
+                                      :update_password]
   before_action :set_user, only: [:show, :destroy]
 
   def show
@@ -35,11 +38,9 @@ class UsersController < ApplicationController
   end
 
   def profile
-    login_needed
   end
 
   def update_profile
-    login_needed
     user_params = params.require(:user).permit(:alias, :avatar,
                                                :country, :profile)
     @current_user.update_without_password(user_params)
@@ -47,11 +48,9 @@ class UsersController < ApplicationController
   end
 
   def account
-    login_needed
   end
 
   def update_account
-    login_needed
     user_params = params.require(:user).permit(:name, :company,
                                                :phone, :fax)
     @current_user.update_without_password(user_params)
@@ -59,11 +58,9 @@ class UsersController < ApplicationController
   end
 
   def edit_password
-    login_needed
   end
 
   def update_password
-    login_needed
     user_params = params.require(:user).permit(:password, :password_confirmation)
     if @current_user.valid_password? params.require(:user)[:old_password]
       if @current_user.update_with_password user_params
