@@ -65,7 +65,7 @@ class UsersController < ApplicationController
                                                :password_confirmation)
     if @current_user.valid_password? user_params[:current_password]
       if @current_user.update_with_password user_params
-        sign_in @current_user, bypass: true
+        bypass_sign_in @current_user
         redirect_to :account
       else
         redirect_to account_password_path, alert: 'Error while updating password.'
