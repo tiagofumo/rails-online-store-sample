@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :orders, except: [:edit, :delete, :update]
+  resources :orders, except: [:edit, :destroy, :update]
   resources :addresses
 
   get    'cart'     => 'cart_items#index'
