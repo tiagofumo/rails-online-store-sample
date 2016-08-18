@@ -12,7 +12,8 @@ FactoryGirl.define do
 
     after(:create) do |product, evaluator|
       create(:primary_picture, :sparkfun_pic, product: product)
-      create_list(:product, evaluator.pictures_count - 1, product: product)
+      create_list(:product_picture, evaluator.pictures_count - 1,
+                  product: product)
     end
   end
 end
