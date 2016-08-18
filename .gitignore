@@ -40,3 +40,6 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore files created for tests
+/spec/test_files/
