@@ -9,7 +9,7 @@ RSpec.describe ProductsController, :type => :controller do
       expect(response).to render_template("index")
     end
 
-    it "loads all of the posts into @posts" do
+    it "loads all of the products into @products" do
       products = [
         FactoryGirl.create(:product),
         FactoryGirl.create(:product)
@@ -28,7 +28,7 @@ RSpec.describe ProductsController, :type => :controller do
       expect(response).to render_template("show")
     end
 
-    it "loads all of the posts into @posts" do
+    it "loads all of the products into @products" do
       product = FactoryGirl.create(:product)
       get :show, id: product.id
       expect(assigns(:product)).to match(product)
