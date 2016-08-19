@@ -3,11 +3,11 @@ class ProductsController < ApplicationController
   before_action :load_categories, only: [:new, :edit]
 
   def index
-    params[:per_page] = 28 if !params.key? :per_page
+    @per_page = params.key?(:per_page) ? params[:per_page] : 28
     @products = Product.includes(:primary_picture).
                         order(created_at: :desc).
                         paginate(page: params[:page],
-                                 per_page: params[:per_page])
+                                 per_page: @per_page)
   end
 
   def show
