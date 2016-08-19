@@ -6,12 +6,12 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    params[:per_page] = 28 if !params.key? :per_page
+    @per_page = params.key?(:per_page) ? params[:per_page] : 28
     @products = @category.products.
                           includes(:primary_picture).
                           order(created_at: :DESC).
                           paginate(page: params[:page],
-                                   per_page: params[:per_page])
+                                   per_page: @per_page)
     render 'products/index'
   end
 
